@@ -5,19 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="com.example.android.testone.MainActivity">
-    <GridLayout
+    tools:context="com.example.android.testtwo.MainActivity">
+
+    <TextView
+        android:id="@+id/huitext"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" />
     <Button
-        android:id="@+id/login"
+        android:id="@+id/chuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登录"/>
-    <Button
-        android:id="@+id/why"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="为什么存在"/>
-    </GridLayout>
+        android:text="传来传去"/>
+
 </LinearLayout>
