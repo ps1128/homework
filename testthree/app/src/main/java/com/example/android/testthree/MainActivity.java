@@ -1,6 +1,7 @@
 package com.example.android.testthree;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
                 // 实例化Intent
                 Intent it = new Intent();
                 //设置Intent的Action属性
-                it.setAction("com.android.activity.MY_ACTION");
+                it.setAction(Intent.ACTION_DIAL);
+                it.setData(Uri.parse("tel:18810599896"));
                 // 启动Activity
                 startActivity(it);
             }
