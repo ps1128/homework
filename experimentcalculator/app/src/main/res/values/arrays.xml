@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="unit_length">
+        <item>sin</item>
+        <item>cos</item>
+        <item>tan</item>
+        <item>square</item>
+        <item>cube</item>
+    </string-array>
+</resources>
