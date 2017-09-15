@@ -6,5 +6,32 @@
         <item>tan</item>
         <item>square</item>
         <item>cube</item>
+        <item>ln</item>
+        <item>lg</item>
+        <item>ln(x+1)</item>
+        <item>sqrt</item>
+        <item>asin</item>
+        <item>acos</item>
+        <item>atan</item>
+        <item>e^x</item>
+    </string-array>
+    <string-array name="unit_length2">
+        <item>binary</item>
+        <item>octal</item>
+        <item>hexadecimal</item>
+    </string-array>
+    <string-array name="unit_length3">
+        <item>人民币</item>
+        <item>美元</item>
+        <item>日元</item>
+        <item>欧元</item>
+        <item>英镑</item>
+    </string-array>
+    <string-array name="unit_length4">
+        <item>人民币</item>
+        <item>美元</item>
+        <item>日元</item>
+        <item>欧元</item>
+        <item>英镑</item>
     </string-array>
 </resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/logout"
+            android:text="退出登录"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="最新信息ID(删改查ID)："
+        android:layout_gravity="center|right"/>
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXXXXXXX"
+            android:layout_gravity="center|right"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="姓名" />
+
+    <EditText
+        android:id="@+id/ed_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="地址"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/ed_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_cc"
+            android:text="存储信息"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_xs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示信息" />
+        <Button
+            android:id="@+id/btn_gx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新信息" />
+        <Button
+            android:id="@+id/btn_sc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除信息" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="姓名"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"
+            android:text="地址"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="XXX" />
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_weight="0.4"
+            android:layout_marginLeft="30dp"
+            android:text="XXXXXXXXX"
+            android:layout_marginTop="30dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>

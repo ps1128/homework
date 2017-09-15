@@ -1,6 +1,10 @@
 package com.example.android.bmobtest;
 
+import android.content.Intent;
 import android.nfc.Tag;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.system.ErrnoException;
@@ -16,6 +20,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 import cn.bmob.v3.listener.SaveListener;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static android.os.Build.VERSION_CODES.M;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +36,74 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Bmob.initialize(getApplicationContext(),"805195fa074f9f330e45a3ecdc1647fa");
+
+
+        final Thread myWorker1 = new Thread() {
+            @Override
+            public void run() {
+
+                Bmob.initialize(getApplicationContext(), "805195fa074f9f330e45a3ecdc1647fa");
+                BmobUser user = new BmobUser();
+                user.setUsername(username.getText().toString());
+                user.setPassword(password.getText().toString());
+
+                user.signUp(new SaveListener<BmobUser>() {
+                    @Override
+                    public void done(BmobUser s, BmobException e) {
+                        try {
+                            if (e == null)
+                                Toast.makeText(MainActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(MainActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+
+                    }
+
+                });
+
+            }
+        };
+        final Thread myWorker2 = new Thread() {
+            @Override
+            public void run() {
+                Bmob.initialize(getApplicationContext(), "805195fa074f9f330e45a3ecdc1647fa");
+                try {
+                    BmobUser.loginByAccount(username.getText().toString(),password.getText().toString(), new LogInListener<MyUser>() {
+                        @Override
+                        public void done(MyUser user, BmobException e) {
+                            if(user!=null){
+                                Toast.makeText(MainActivity.this, "登录成功" , Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent();
+                                intent.setClass(MainActivity.this,SecondActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                    });
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        Bmob.initialize(getApplicationContext(),"805195fa074f9f330e45a3ecdc1647fa");
+
 
 
         username = (EditText) findViewById(R.id.un);
@@ -40,24 +112,27 @@ public class MainActivity extends AppCompatActivity {
         regist = (Button) findViewById(R.id.regist);
         login = (Button) findViewById(R.id.login);
 
+
+
         regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BmobUser user = new BmobUser();
-                user.setUsername(username.getText().toString());
-                user.setPassword(password.getText().toString());
 
-                user.signUp(new SaveListener<BmobUser>() {
-                    @Override
-                    public void done(BmobUser s, BmobException e) {
-                        if(e == null)
-                            Toast.makeText(MainActivity.this, "注册成功:" + s.toString(), Toast.LENGTH_LONG);
-                        else
-                            Toast.makeText(MainActivity.this, "注册失败:" + s.toString(), Toast.LENGTH_LONG);
-                    }
+                Thread workThread = new Thread(null, myWorker1, "WorkThread");
+                workThread.start();
 
-                });
+
             }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Thread workThread = new Thread(null, myWorker2, "WorkThread");
+                workThread.start();
+            }
+        });
+
+
 
 
 //
@@ -76,24 +151,24 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 //            }
-        });
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                BmobUser.loginByAccount(username.getText().toString(),password.getText().toString(), new LogInListener<MyUser>() {
+//        });
 //
-                    @Override
-                    public void done(MyUser user, BmobException e) {
-                        if(user!=null){
-                            Toast.makeText(MainActivity.this, "登录成功:"+ user.toString() , Toast.LENGTH_LONG);
-                            Log.i("smile","用户登陆成功");
-                        }
-                    }
-                });
-            }
-        });
-
+//        login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                BmobUser.loginByAccount(username.getText().toString(),password.getText().toString(), new LogInListener<MyUser>() {
+////
+//                    @Override
+//                    public void done(MyUser user, BmobException e) {
+//                        if(user!=null){
+//                            Toast.makeText(MainActivity.this, "登录成功:"+ user.toString() , Toast.LENGTH_LONG);
+//                            Log.i("smile","用户登陆成功");
+//                        }
+//                    }
+//                });
+//            }
+//        });
+//
 
     }
 }

@@ -5,8 +5,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.android.experimentcalculator.R;
@@ -22,6 +24,8 @@ public class MainActivity extends Activity implements MainView {
 
     //所有视图控件
     private Button btn_toConvertion;
+    private Button btn_toConversion_2;
+
 
     private Button btn_0;
     private Button btn_1;
@@ -69,6 +73,7 @@ public class MainActivity extends Activity implements MainView {
     public void initViews() {
         buttons = new ArrayList<>();
         btn_toConvertion = (Button) findViewById(R.id.btn_calculator_to_unit_convert);
+        btn_toConversion_2 = (Button) findViewById(R.id.btn_calculator_to_unit_convert_2);
         btn_0 = (Button) findViewById(R.id.btn_0);
         btn_1 = (Button) findViewById(R.id.btn_1);
         btn_2 = (Button) findViewById(R.id.btn_2);
@@ -87,6 +92,7 @@ public class MainActivity extends Activity implements MainView {
         btn_div = (Button) findViewById(R.id.btn_div);
         btn_del = (Button) findViewById(R.id.btn_del);
         buttons.add(btn_toConvertion);
+        buttons.add(btn_toConversion_2);
         buttons.add(btn_0);
         buttons.add(btn_1);
         buttons.add(btn_2);
@@ -109,7 +115,7 @@ public class MainActivity extends Activity implements MainView {
         }
 
         tv_result = (TextView) findViewById(R.id.tv_calcu_result);
-
+        tv_result.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
     /**
@@ -213,7 +219,7 @@ public class MainActivity extends Activity implements MainView {
                     break;
                 case R.id.btn_enter:
                     //事件处理向后层转移
-                    presenter.calcu(tv_result.getText() + "");
+                    presenter.calcu("0"+tv_result.getText() + "");
                     break;
                 case R.id.btn_add:
                     update('+');
@@ -235,6 +241,14 @@ public class MainActivity extends Activity implements MainView {
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this,UnitConversionActivity.class);
                     startActivity(intent);
+                    finish();
+                    break;
+                case R.id.btn_calculator_to_unit_convert_2:
+                    //跳转到单位转换界面
+                    Intent intent_2 = new Intent();
+                    intent_2.setClass(MainActivity.this,UnitConversionActivity_2.class);
+                    startActivity(intent_2);
+                    finish();
                     break;
             }
         }

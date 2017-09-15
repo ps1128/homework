@@ -8,8 +8,9 @@ import cn.bmob.v3.BmobUser;
 
 public class MyUser extends BmobUser {
     private Boolean sex;
-    private String nick;
+    private String name;
     private Integer age;
+    private String address;
 
     public boolean getSex() {
         return this.sex;
@@ -19,12 +20,12 @@ public class MyUser extends BmobUser {
         this.sex = sex;
     }
 
-    public String getNick() {
-        return this.nick;
+    public String getName() {
+        return this.name;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getAge() {
@@ -33,5 +34,13 @@ public class MyUser extends BmobUser {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String adress) {
+        this.address = adress;
     }
 }

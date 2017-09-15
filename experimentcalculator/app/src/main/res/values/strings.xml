@@ -2,6 +2,7 @@
     <string name="app_name">计算器</string>
     <string name="str_unit_conversion">特殊转换</string>
     <string name="str_calcu">计算器</string>
+    <string name="str_unit_conversion_2">汇率转换</string>
 
     <string name="str_default_result">0</string>
 
