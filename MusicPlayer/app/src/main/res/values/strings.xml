@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <string name="sound">声音</string>
+    <string name="theme">主题</string>
+    <string name="song_name">渡红尘</string>
+    <string name="song_text">荒草枯木雪纷纷\n萧瑟多少青春</string>
+</resources>

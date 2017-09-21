@@ -92,20 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-//        Bmob.initialize(getApplicationContext(),"805195fa074f9f330e45a3ecdc1647fa");
-
-
-
         username = (EditText) findViewById(R.id.un);
         password = (EditText) findViewById(R.id.pw);
 
@@ -132,43 +118,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-//
-//                //上传
-//                user.signUp(new SaveListener<MyUser>() {
-//                    @Override
-//                    public void done(MyUser s, BmobException e) {
-//                        try {
-//                            if (e == null) {
-//                                //注册成功提示
-//                                Toast.makeText(MainActivity.this, "注册成功:" + s.toString(), Toast.LENGTH_LONG);
-//                            }
-//                        }catch (Exception e1){
-//                            Log.e("error","This is error");
-//                        }
-//                    }
-//                });
-//            }
-//        });
-//
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                BmobUser.loginByAccount(username.getText().toString(),password.getText().toString(), new LogInListener<MyUser>() {
-////
-//                    @Override
-//                    public void done(MyUser user, BmobException e) {
-//                        if(user!=null){
-//                            Toast.makeText(MainActivity.this, "登录成功:"+ user.toString() , Toast.LENGTH_LONG);
-//                            Log.i("smile","用户登陆成功");
-//                        }
-//                    }
-//                });
-//            }
-//        });
-//
 
     }
 }
